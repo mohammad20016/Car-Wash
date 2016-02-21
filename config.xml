@@ -1,7 +1,7 @@
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.carwash.mohammad" version="1.0.0">
+F<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.carwash.mohammad" version="1.0.0">
   <name>Car Wash</name>
-  <description>Hello World sample application that responds to the deviceready event.</description>
-  <author href="http://phonegap.com" email="support@phonegap.com">PhoneGap Team</author>
+  <description>Mobile Car Wash Team washes your car at your door.</description>
+  <author href="" email="mohammad_ahmadzai@hotmail.co.uk">Mohammad Ahmadzai</author>
   <content src="index.html"/>
   <preference name="permissions" value="none"/>
   <preference name="orientation" value="default"/>
@@ -36,11 +36,11 @@
   <gap:plugin name="org.apache.cordova.network-information"/>
   <gap:plugin name="org.apache.cordova.splashscreen"/>
   <gap:plugin name="org.apache.cordova.vibration"/>
-  <icon src="icon.png"/>
-  <icon src="www/res/icon/android/icon-36-ldpi.png" gap:platform="android" gap:qualifier="ldpi"/>
-  <icon src="www/res/icon/android/icon-48-mdpi.png" gap:platform="android" gap:qualifier="mdpi"/>
-  <icon src="www/res/icon/android/icon-72-hdpi.png" gap:platform="android" gap:qualifier="hdpi"/>
-  <icon src="www/res/icon/android/icon-96-xhdpi.png" gap:platform="android" gap:qualifier="xhdpi"/>
+  <icon src="www/img/logo.png"/>
+  <icon src="www/img/logo.png" gap:platform="android" gap:qualifier="ldpi"/>
+  <icon src="www/img/logo.png" gap:platform="android" gap:qualifier="mdpi"/>
+  <icon src="www/img/logo.png" gap:platform="android" gap:qualifier="hdpi"/>
+  <icon src="www/img/logo.png" gap:platform="android" gap:qualifier="xhdpi"/>
   <icon src="www/res/icon/blackberry/icon-80.png" gap:platform="blackberry"/>
   <icon src="www/res/icon/blackberry/icon-80.png" gap:platform="blackberry" gap:state="hover"/>
   <icon src="www/res/icon/ios/icon-57.png" gap:platform="ios" width="57" height="57"/>
