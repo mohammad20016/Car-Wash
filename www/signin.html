@@ -50,7 +50,8 @@
 				if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
 				{
 					document.getElementById('result').innerHTML = xmlhttp.responseText;
-					alert("4st");
+					alert(window.sessionStorage.getItem("userId"));
+					window.open('myaccount.html', '_system');
 				}
 			}
 		</script>
