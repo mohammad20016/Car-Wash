@@ -20,12 +20,14 @@
 			window.onload = function()
 			{
 				document.addEventListener('deviceready', init, false);
+				alert("1st");
 			}
 			function init()
 			{
 				document.getElementById('submitbtn').addEventListener('click', getdata, false);
 				xmlhttp = new XMLHttpRequest();
 				xmlhtp.onreadystatechange = processReturn;
+				alert("2st");
 			}
 			function getdata()
 			{
@@ -34,12 +36,14 @@
 				url += "&password=" + document.getElementById('password').value;
 				xmlhttp.open("GET", url, false);
 				xmlhttp.send();
+				alert("3st");
 			}
 			function processReturn()
 			{
 				if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
 				{
 					document.getElementById('result').innerHTML = xmlhttp.responseText;
+					alert("4st");
 				}
 			}
 		</script>
