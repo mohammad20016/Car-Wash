@@ -29,14 +29,13 @@
 			window.onload = function()
 			{
 				document.addEventListener('deviceready', init, false);
-				alert("1st");
+				init();
 			}
 			function init()
 			{
 				document.getElementById('submitbtn').addEventListener('click', getdata, false);
 				xmlhttp = new XMLHttpRequest();
 				xmlhttp.onreadystatechange = processReturn;
-				alert("2st");
 			}
 			function getdata()
 			{
@@ -45,7 +44,6 @@
 				url += "&password=" + document.getElementById('password').value;
 				xmlhttp.open("GET", url, false);
 				xmlhttp.send();
-				alert("3st");
 			}
 			function processReturn()
 			{
@@ -86,7 +84,7 @@
                 <h1>Sign In</h1>
 					<div class="row">
 						
-							<form action="" method="post" class="form">
+							
   <div class="col-2">
     <label>
       Email Address&nbsp;&nbsp;
@@ -102,7 +100,7 @@
   <div class="col-submit">
     <button class="submitbtn" id="submitbtn">Sign In</button>
   </div>
-  </form>
+
 					
 					</div>
 				</div>
