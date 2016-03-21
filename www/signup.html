@@ -33,7 +33,7 @@
 			}
 			function init()
 			{
-				document.getElementById('submitbtn').addEventListener('click', getdata, false);
+				document.getElementById('submitbtn1').addEventListener('click', getdata, false);
 				xmlhttp = new XMLHttpRequest();
 				xmlhttp.onreadystatechange = processReturn;
 			}
@@ -94,7 +94,7 @@
 <script type="text/javascript" src="js/switchery.min.js"></script>
 
   <div id="wrapper1">
-  
+  <div id="result"></div>
   <h1>Sign Up</h1>
   
   <div class="col-2">
@@ -149,7 +149,7 @@
   </div>
   
   <div class="col-submit">
-    <button class="submitbtn" id="submitbtn">Register</button>
+    <button class="submitbtn" id="submitbtn1">Register</button>
   </div>
  
   </div>
