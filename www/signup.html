@@ -43,10 +43,11 @@
 				url += "?name=" + document.getElementById('name').value;
 				url += "?email=" + document.getElementById('email').value;
 				url += "&password=" + document.getElementById('password').value;
-				url += "?phone=" + document.getElementById('phone').value;
-				url += "?question=" + document.getElementById('question').value;
-				url += "?answer=" + document.getElementById('answer').value;
-				url += "?newsletter=" + document.getElementById('newsletter').value;
+				url += "&password1=" + document.getElementById('password1').value;
+				url += "&phone=" + document.getElementById('phone').value;
+				url += "&question=" + document.getElementById('question').value;
+				url += "&answer=" + document.getElementById('answer').value;
+				url += "&newsletter=" + document.getElementById('newsletter').value;
 				xmlhttp.open("GET", url, false);
 				xmlhttp.send();
 			}
