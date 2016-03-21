@@ -50,9 +50,14 @@
 				if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
 				{
 					document.getElementById('result').innerHTML = xmlhttp.responseText;
-					if (document.getElementById('result').innerHTML == "Successful Login")
+					var hh = document.getElementById('result').innerHTML;
+				var n = hh.indexOf("Successful Login");
+				if (n <= -1)
+				{
+				}
+				else
 					{
-						window.open('myaccount.html');
+						window.open('myaccount.html','_self');
 					}
 				}
 			}

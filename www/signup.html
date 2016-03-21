@@ -24,6 +24,49 @@
        
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+        <script>
+			var xmlhttp;
+			window.onload = function()
+			{
+				document.addEventListener('deviceready', init, false);
+				init();
+			}
+			function init()
+			{
+				document.getElementById('submitbtn').addEventListener('click', getdata, false);
+				xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = processReturn;
+			}
+			function getdata()
+			{
+				url = "http://mobilecarwash.club/signup-app.php";
+				url += "?name=" + document.getElementById('name').value;
+				url += "?email=" + document.getElementById('email').value;
+				url += "&password=" + document.getElementById('password').value;
+				url += "?phone=" + document.getElementById('phone').value;
+				url += "?question=" + document.getElementById('question').value;
+				url += "?answer=" + document.getElementById('answer').value;
+				url += "?newsletter=" + document.getElementById('newsletter').value;
+				xmlhttp.open("GET", url, false);
+				xmlhttp.send();
+			}
+			function processReturn()
+			{
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+				{
+					document.getElementById('result').innerHTML = xmlhttp.responseText;
+					var hh = document.getElementById('result').innerHTML;
+				var n = hh.indexOf("Registration Successful");
+				if (n <= -1)
+				{
+				}
+				else
+					{
+						window.open('signin.html','_self');
+					}
+				}
+			}
+		</script>
 	</head>
 	<body class="homepage">
 
@@ -54,7 +97,6 @@
   
   <h1>Sign Up</h1>
   
-  <form action="signup.php" method="post" class="form">
   <div class="col-2">
     <label>
       Name*&nbsp;&nbsp;
@@ -82,12 +124,12 @@
   </div>
   <div class="col-3">
     <label>Join for Newsletter</label>
-    <center style="position:relative; margin-bottom:8px;"><input type="checkbox" class="js-switch" name="newsletter" value="Yes"></center>
+    <center style="position:relative; margin-bottom:8px;"><input type="checkbox" class="js-switch" name="newsletter" id="newsletter" value="Yes"></center>
   </div>
   <div class="col-3">
     <label>
       Secret Question* &nbsp;&nbsp;
-     <select tabindex="6" name="question">
+     <select tabindex="6" name="question" id="question">
         <option value="mothers maiden name">What is your mothers maiden name?</option>
         <option value="firsts street name">What is the name of the street you first lived?</option>
       </select>
@@ -99,11 +141,17 @@
       <input placeholder="What is your answer to secret question" id="answer" name="answer" tabindex="7" type="text">
     </label>
   </div>
+  <div class="col-3">
+    <label>
+    Phone*</span>
+      <input placeholder="What is your phone number" id="phone" name="phone" tabindex="7" type="text">
+    </label>
+  </div>
   
   <div class="col-submit">
-    <button class="submitbtn">Register</button>
+    <button class="submitbtn" id="submitbtn">Register</button>
   </div>
-  </form>
+ 
   </div>
 <script type="text/javascript">
 var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
