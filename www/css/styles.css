@@ -55,6 +55,8 @@ h1 {
 
 .col-2, .col-3, .col-4 { 
   border-bottom: 1px solid #e4e4e4;
+  margin:5px;
+  padding:5px;
 }
 
 .form > div > .col-4 {
@@ -188,7 +190,8 @@ button.submitbtn:active {
   form > div { display: inline-block; }
   .col-submit { display: block; }
   
-  .col-2, .col-3, .col-4 { box-shadow: 1px 1px #e4e4e4; border: none; }
+  .col-2, .col-3, .col-4 { box-shadow: 1px 1px #e4e4e4; border: none; margin:5px;
+  padding:5px; }
   
   .col-2 { width: 50% }
   .col-3 { width: 33.3333333333% }

@@ -1,0 +1,233 @@
+<html>
+<head>
+<title>Address</title>
+<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.dropotron.min.js"></script>
+        <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+        	<link rel="stylesheet" href="css/style.css" />
+<style>
+      
+	  #opc_button
+	  {
+		  background-color:#06F !important;
+		  margin:6px;
+		  width:90%;
+	  }
+      #map {
+        height: 30%;
+      }
+      #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+      #floating-panel {
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        margin-left: -180px;
+        width: 350px;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+      }
+    </style>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.dropotron.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+        <script type="text/javascript" src="js/modernizr.custom.46884.js"></script>
+         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.slicebox.js"></script>
+         <!--<script type="text/javascript" src="cordova.js"></script>-->
+         <link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+            <link rel="stylesheet" href="css/slicebox.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+  </head>
+  <body>
+  	<!-- Header -->
+			<div id="header-wrapper">
+				<header id="header" class="container">
+				
+					<!-- Logo -->
+						<div id="logo">
+						<a href="index.html"><img src="images/logo.png" alt="Car Wash"></a>
+						</div>
+						<nav id="nav">
+							<ul>
+                            	<li><a href="index.html">Home</a></li>
+                                <li><a href="signin.html">Sign In</a></li>
+                                <li><a href="signup.html">Sign Up</a></li>
+                            </ul>
+                            </nav>
+				</header>
+			</div>
+   
+    <script>
+			var xmlhttp;
+			window.onload = function()
+			{
+				document.addEventListener('deviceready', init, false);
+				init();
+				initMap();
+			}
+			function init()
+			{
+				xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = processReturn;
+				var em = window.sessionStorage.getItem("email");
+				alert(em);
+			}
+			
+			function processReturn()
+			{
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+					{
+					document.getElementById('opc_input').value = xmlhttp.responseText;
+					}
+			}
+	function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 10,
+    center: {lat:51.5121294, lng:0.020891299999999998}
+  });
+  var geocoder = new google.maps.Geocoder;
+  var infowindow = new google.maps.InfoWindow;
+  document.getElementById('opc_button').addEventListener('click', function() {
+    geocodeLatLng(geocoder, map, infowindow);
+  });
+  navigator.geolocation.getCurrentPosition(onSuccess, onError);
+	function onSuccess(position) {
+        var element = document.getElementById('geolocation');
+		var lat = position.coords.latitude;
+		var lon = position.coords.longitude;
+		var latlng = lat+','+lon;
+		document.getElementById('latlng').value = latlng;
+		getdata(lat,lon);
+    }
+
+    // onError Callback receives a PositionError object
+    //
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
+    }
+}
+function getdata(lat, lon)
+			{
+				url = "http://mobilecarwash.club/postcode.php";
+				url += "?lat=" + lat;
+				url += "&lon=" + lon;
+				xmlhttp.open("GET", url, false);
+				xmlhttp.send();
+			}
+function geocodeLatLng(geocoder, map, infowindow) {
+	
+  var input = document.getElementById('latlng').value;
+  var latlngStr = input.split(',', 2);
+  var latlng = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
+  geocoder.geocode({'location': latlng}, function(results, status) {
+    if (status === google.maps.GeocoderStatus.OK) {
+      if (results[1]) {
+        map.setZoom(17);
+        var marker = new google.maps.Marker({
+          position: latlng,
+          map: map
+        });
+        infowindow.setContent(results[1].formatted_address);
+        infowindow.open(map, marker);
+      } else {
+        window.alert('No results found');
+      }
+    } else {
+      window.alert('Geocoder failed due to: ' + status);
+    }
+  });
+  getdata(lat,lon);
+}
+
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPsKFImRwxuSehdYFhJVHDD5odkOrHGKc&callback=initMap">
+    </script>
+    <!-- Include plugin file -->
+<script src="https://getaddress.io/js/jquery.getAddress-2.0.1.min.js"></script>
+
+
+<!-- Postcode field -->
+<br>
+<div id="banner-wrapper" style="width:90%; margin:auto; padding:5px;">
+				<div id="banner" class="box container" style="margin:10px; padding:10px;"> 
+                <div id="wrapper1">
+                <h1>New Address</h1>
+                 <div id="floating-panel" style="display:none;">
+      <input id="latlng" type="hidden" value="">
+      <input id="submit" type="hidden" value="Reverse Geocode">
+    </div>
+    <div id="map"></div>
+                <div class="col-2">
+<div id="postcode_lookup"></div>  
+</div>
+<!-- Add to your existing form -->
+<div class="col-2">
+    <label>
+First Address Line<br>
+<input id="line1" type="text"> </label>
+</div>
+<div class="col-2">
+   
+<label>Second Address Line<br>
+<input id="line2" type="text">   </label></div>
+<div class="col-2">
+    <label>
+Third Address Line<br>
+<input id="line3" type="text"> </label> </div>
+<div class="col-2">
+    <label>
+Town<br>
+<input id="town" type="text"></label></div>
+
+<div class="col-2">
+    <label>County<br>
+<input id="county" type="text"></label></div>
+
+<div class="col-2">
+    <label>Postcode<br>
+<input id="postcode" type="text"></label></div>
+
+<!-- Add after your form -->
+<script>
+$('#postcode_lookup').getAddress({
+    api_key: 'Xmn9btioYkSh6o2n97SVDA3727', 
+    output_fields:{
+        line_1: '#line1',
+        line_2: '#line2',
+        line_3: '#line3',
+        post_town: '#town',
+        county: '#county',
+        postcode: '#postcode'
+    },
+<!--  Optionally register callbacks at specific stages -->                                                                                                               
+    onLookupSuccess: function(data){/* Your custom code */},
+    onLookupError: function(){/* Your custom code */},
+    onAddressSelected: function(elem,index){/* Your custom code */}
+});
+</script>
+</div>
+</div>
+</div>    </html>
+    </body>

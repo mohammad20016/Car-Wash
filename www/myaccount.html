@@ -14,7 +14,7 @@
         <script type="text/javascript" src="js/modernizr.custom.46884.js"></script>
          <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 		<script type="text/javascript" src="js/jquery.slicebox.js"></script>
-         <!--<script type="text/javascript" src="cordova.js"></script>-->
+         <script type="text/javascript" src="cordova.js"></script>
 		
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
@@ -24,7 +24,7 @@
        
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
-        <script>
+		<script>
 			var xmlhttp;
 			window.onload = function()
 			{
@@ -33,21 +33,39 @@
 			}
 			function init()
 			{
-				document.getElementById('submitbtn1').addEventListener('click', getdata, false);
+				navigator.geolocation.getCurrentPosition(onSuccess, onError);
+				document.getElementById('submitbtn').addEventListener('click', getdata, false);
 				xmlhttp = new XMLHttpRequest();
 				xmlhttp.onreadystatechange = processReturn;
 			}
+			 function onSuccess(position) {
+        var element = document.getElementById('geolocation');
+		var lat = position.coords.latitude;
+		var lon = position.coords.longitude;
+		alert (lat);
+		alert(lon);
+        element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
+                            'Longitude: '          + position.coords.longitude             + '<br />' +
+                            'Altitude: '           + position.coords.altitude              + '<br />' +
+                            'Accuracy: '           + position.coords.accuracy              + '<br />' +
+                            'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
+                            'Heading: '            + position.coords.heading               + '<br />' +
+                            'Speed: '              + position.coords.speed                 + '<br />' +
+                            'Timestamp: '          + position.timestamp                    + '<br />';
+							initMap();
+    }
+
+    // onError Callback receives a PositionError object
+    //
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
+    }
 			function getdata()
 			{
-				url = "http://mobilecarwash.club/signup-app.php";
-				url += "?name=" + document.getElementById('name').value;
-				url += "&email=" + document.getElementById('email').value;
+				url = "http://mobilecarwash.club/signin-app.php";
+				url += "?email=" + document.getElementById('email').value;
 				url += "&password=" + document.getElementById('password').value;
-				url += "&password1=" + document.getElementById('password1').value;
-				url += "&phone=" + document.getElementById('phone').value;
-				url += "&question=" + document.getElementById('question').value;
-				url += "&answer=" + document.getElementById('answer').value;
-				url += "&newsletter=" + document.getElementById('newsletter').value;
 				xmlhttp.open("GET", url, false);
 				xmlhttp.send();
 			}
@@ -57,17 +75,20 @@
 				{
 					document.getElementById('result').innerHTML = xmlhttp.responseText;
 					var hh = document.getElementById('result').innerHTML;
-				var n = hh.indexOf("Registration Successful");
+				var n = hh.indexOf("Successful Login");
 				if (n <= -1)
 				{
 				}
 				else
 					{
-						window.open('signin.html','_self');
+						var em = document.getElementById('email').value;
+						window.sessionStorage.setItem("email", em);
+						window.open('myaccount.html','_self');
 					}
 				}
 			}
 		</script>
+		
 	</head>
 	<body class="homepage">
 
@@ -82,88 +103,29 @@
 						<nav id="nav">
 							<ul>
                             	<li><a href="index.html">Home</a></li>
-                                <li><a href="signin.html">Sign In</a></li>
-                                <li><a href="signup.html">Sign Up</a></li>
+                                <li><a href="myaccount.html">My Account</a></li>
+                                <li><a href="orders.html">Orders</a></li>
                             </ul>
                             </nav>
 				</header>
 			</div>
-		
-		<!-- Banner -->
-			<link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+		<link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
 <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
 <script type="text/javascript" src="js/switchery.min.js"></script>
-<div id="banner-wrapper">
+		<!-- Banner -->
+			<div id="banner-wrapper">
 				<div id="banner" class="box container">
-
-  <div id="wrapper1">
-  <div id="result"></div>
-  <h1>Sign Up</h1>
-  
-  <div class="col-2">
-    <label>
-      Name*&nbsp;&nbsp;<br>
-      <input placeholder="What is your full name?" id="name" name="name" tabindex="1" type="text">
-    </label>
-  </div>
-  <div class="col-2">
-    <label>
-      Email Address*&nbsp;&nbsp;<br>
-      <input placeholder="What is your email address?" id="email" name="email" tabindex="2" type="email">
-    </label>
-  </div>
-  
-  <div class="col-3">
-    <label>
-     Password* &nbsp;&nbsp;<br>
-      <input placeholder="Set up a password" id="password" name="password" tabindex="3" type="password">
-    </label>
-  </div>
-  <div class="col-3">
-    <label>
-     Confirm Password &nbsp;&nbsp;<br>
-      <input placeholder="Confirm password" id="password1" name="password1" tabindex="4" type="password">
-    </label>
-  </div>
-  <div class="col-3">
-    <label>Join for Newsletter<br>
-    <center style="position:relative; margin-bottom:8px;"><input type="checkbox" class="js-switch" name="newsletter" id="newsletter" value="Yes"></center></label>
-  </div>
-  <div class="col-3">
-    <label>
-      Secret Question* &nbsp;&nbsp;<br>
-     <select tabindex="6" name="question" id="question">
-        <option value="mothers maiden name">What is your mothers maiden name?</option>
-        <option value="firsts street name">What is the name of the street you first lived?</option>
-      </select>
-    </label>
-  </div>
-   <div class="col-3">
-    <label>
-    Answer*<br>
-      <input placeholder="What is your answer to secret question" id="answer" name="answer" tabindex="7" type="text">
-    </label>
-  </div>
-  <div class="col-3">
-    <label>
-    Phone*<br>
-      <input placeholder="What is your phone number" id="phone" name="phone" tabindex="7" type="text">
-    </label>
-  </div>
-  
-  <div class="col-submit">
-    <button class="submitbtn" id="submitbtn1">Register</button>
-  </div>
- </div>
-  </div>
-  
-<script type="text/javascript">
-var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
-
-elems.forEach(function(html) {
-  var switchery = new Switchery(html);
-});
-</script>
+                <div id="wrapper1">
+<div id="result"></div>
+                <h1>Add Car</h1>
+					<div class="row">
+						
+						<a href="geo.html">Add new address</a>
+					
+					</div>
+				</div>
+			</div>
+            </div>
 		
 		
 
@@ -177,7 +139,6 @@ elems.forEach(function(html) {
 								<section class="widget links">
 									<h3>Useful Links</h3>
 									<ul class="style2">
-						
 										<li><a href="signin.php">Sign In</a></li>
 										<li><a href="signup.php">Sign Up</a></li>
 										
@@ -220,7 +181,7 @@ elems.forEach(function(html) {
 						<div class="12u">
 							<div id="copyright">
 								<ul class="menu">
-									<li>&copy; Mobile Car Wash 2015. All rights reserved</li>
+									<li>&copy;Mobile Car Wash 2016. All rights reserved</li>
 								</ul>
 							</div>
 						</div>
