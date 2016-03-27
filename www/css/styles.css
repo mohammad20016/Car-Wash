@@ -11,6 +11,10 @@ em, i { font-style: italic; }
 	text-align:center;
 	font-size:16px !important;
 }
+  .col-2, .col-3, .col-4 
+	  {
+		  color:222 !important;
+	  }
 .an a
 {
 	text-decoration:none;
@@ -46,7 +50,7 @@ h1 {
   font-size: 13px;
   font-weight: bold;
   text-transform: uppercase;
-  color: #939393;
+  color: #000;
   cursor: pointer;
 }
 .form > div.switch > label {
@@ -73,7 +77,7 @@ label > .wrapper1 input {
   padding: 7px 5px 3px;
   border: none;
   outline: none;
-  color: #555;
+  color: #222;
   font-family: 'Helvetica Neue', Arial, sans-serif;
   font-weight: bold;
   font-size: 14px;
@@ -90,7 +94,7 @@ label > select {
   display: block;
   width: 100%;
   padding: 0;
-  color: #555;
+  color: #222;
   margin: 16px 0 6px;
   font-weight: 500;
   background: transparent;
@@ -191,11 +195,11 @@ button.submitbtn:active {
   .col-submit { display: block; }
   
   .col-2, .col-3, .col-4 { box-shadow: 1px 1px #e4e4e4; border: none; margin:5px;
-  padding:5px; }
+  padding:5px; float:left; }
   
-  .col-2 { width: 50% }
-  .col-3 { width: 33.3333333333% }
-  .col-4 { width: 25% }
+  .col-2 { width: 45% }
+  .col-3 { width: 30.3333333333% }
+  .col-4 { width: 22% }
   
   .col-submit button { width: 30%; margin: 0 auto; }
 }

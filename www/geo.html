@@ -13,6 +13,15 @@
 		  margin:6px;
 		  width:90%;
 	  }
+	  #opc_dropdown
+	  {
+		  width:90%;
+	  }
+	 
+	  #opc_input
+	  {
+		  color:222 !important;
+	  }
       #map {
         height: 30%;
       }
@@ -90,7 +99,32 @@
 				xmlhttp = new XMLHttpRequest();
 				xmlhttp.onreadystatechange = processReturn;
 				var em = window.sessionStorage.getItem("email");
-				alert(em);
+				document.getElementById('submitbtn').addEventListener('click', getdata1, false);
+				xmlhttp1 = new XMLHttpRequest();
+				xmlhttp1.onreadystatechange = processReturn1;
+			}
+			function getdata1()
+			{
+				alert("abc");
+				var em = window.sessionStorage.getItem("email");
+				url1 = "http://mobilecarwash.club/address-app.php";
+				url1 += "?first=" + document.getElementById('line1').value;
+				url1 += "&second=" + document.getElementById('line2').value;
+				url1 += "&third=" + document.getElementById('line3').value;
+				url1 += "&town=" + document.getElementById('town').value;
+				url1 += "&county=" + document.getElementById('county').value;
+				url1 += "&postcode=" + document.getElementById('postcode').value;
+				url1 += "&email="+em;
+				alert(url1);
+				xmlhttp1.open("GET", url1, false);
+				xmlhttp1.send();
+			}
+			function processReturn1()
+			{
+				if (xmlhttp1.readyState == 4 && xmlhttp1.status == 200)
+				{
+					document.getElementById('result').innerHTML = xmlhttp1.responseText;
+				}
 			}
 			
 			function processReturn()
@@ -170,15 +204,17 @@ function geocodeLatLng(geocoder, map, infowindow) {
 
 <!-- Postcode field -->
 <br>
-<div id="banner-wrapper" style="width:90%; margin:auto; padding:5px;">
-				<div id="banner" class="box container" style="margin:10px; padding:10px;"> 
-                <div id="wrapper1">
+			<div id="banner-wrapper" style="width:90%; margin:auto; padding:5px;">
+				 <div id="banner" class="box container" style="margin:10px; padding:10px;"> 
                 <h1>New Address</h1>
                  <div id="floating-panel" style="display:none;">
       <input id="latlng" type="hidden" value="">
       <input id="submit" type="hidden" value="Reverse Geocode">
     </div>
+    <div id="result"></div>
     <div id="map"></div>
+   
+                <div id="wrapper1">
                 <div class="col-2">
 <div id="postcode_lookup"></div>  
 </div>
@@ -208,6 +244,10 @@ Town<br>
 <div class="col-2">
     <label>Postcode<br>
 <input id="postcode" type="text"></label></div>
+<div class="col-2">
+<div class="col-submit">
+    <button class="submitbtn" id="submitbtn">Add new address</button>
+  </div>
 
 <!-- Add after your form -->
 <script>
