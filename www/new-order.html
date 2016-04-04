@@ -1,0 +1,133 @@
+<html>
+<head>
+<title>Add New Car</title>
+<script src="js/jquery.min.js"></script>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.dropotron.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		
+		<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+            <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+			<link rel="stylesheet" href="css/style-desktop.css" />
+            <link rel="stylesheet" href="css/slicebox.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+          <script>
+			var xmlhttp;
+			window.onload = function()
+			{
+				document.addEventListener('deviceready', init, false);
+				init();
+			}
+			function init()
+			{
+				var em = window.sessionStorage.getItem("email");
+				document.getElementById('submitbtn').addEventListener('click', getdata1, false);
+				xmlhttp1 = new XMLHttpRequest();
+				xmlhttp1.onreadystatechange = processReturn1;
+				var em = window.sessionStorage.getItem("email");
+				url1 = "http://mobilecarwash.club/listcar.php";
+				url1 += "?email="+em;
+				xmlhttp1.open("GET", url1, false);
+				xmlhttp1.send();
+			}
+			function getdata1()
+			{
+				 var file = document.querySelector('input[type=file]').files[0];
+				var em = window.sessionStorage.getItem("email");
+				url1 = "http://mobilecarwash.club/car-app.php";
+				url1 += "?number=" + document.getElementById('number').value;
+				url1 += "&colour=" + document.getElementById('colour').value;
+				url1 += "&model=" + document.getElementById('model').value;
+				url1 += "&make=" + document.getElementById('make').value;
+				url1 += "&email="+em;
+				url1 += "&image="+file;
+				xmlhttp1.open("GET", url1, false);
+				xmlhttp1.send();
+			}
+			function processReturn1()
+			{
+				if (xmlhttp1.readyState == 4 && xmlhttp1.status == 200)
+				{
+					document.getElementById('result').innerHTML = xmlhttp1.responseText;
+				}
+			}
+	</script>
+  </head>
+<body>
+<!-- Header -->
+			<div id="header-wrapper">
+				<header id="header" class="container">
+				
+					<!-- Logo -->
+						<div id="logo">
+						<a href="index.html"><img src="images/logo.png" alt="Car Wash"></a>
+						</div>
+						<nav id="nav">
+							<ul>
+                            	<li><a href="index.html">Home</a></li>
+                                <li><a href="myaccount.html">My Account</a></li>
+                                <li><a href="orders.html">Orders</a></li>
+                            </ul>
+                            </nav>
+				</header>
+			</div>
+           
+            <div id="banner-wrapper" style="width:90%; margin:auto; padding:5px;">
+				 <div id="banner" class="box container" style="margin:10px; padding:10px;"> 
+                <h1>New Order</h1>
+                 <div id="result"></div>
+                 
+<script>
+function listcar(){
+var b = document.getElementById('listcar').value;
+if (document.getElementById('listcar').value == 'addnew')
+{
+	window.open('addcar.html');
+}
+}
+function listaddress(){
+var b = document.getElementById('listaddress').value;
+if (document.getElementById('listaddress').value == 'addnew')
+{
+	window.open('addaddress.html');
+}
+}
+</script>
+<div class="col-2">
+    <label>
+Car Registration Number<br>
+<input id="number" type="text"> </label>
+<input id="imagee" type="hidden">
+</div>
+<div class="col-2">
+   
+<label>Colour<br>
+<input id="colour" type="text">   </label></div>
+<div class="col-2">
+    <label>
+Model<br>
+<input id="model" type="text"> </label> </div>
+<div class="col-2">
+    <label>
+Make<br>
+<input id="make" type="text"></label></div>
+
+<div class="col-2">
+<div class="col-submit">
+    <button class="submitbtn" id="submitbtn">Add new car</button>
+  </div></div>
+</div>
+</div>  
+</body>
+  </html>
+

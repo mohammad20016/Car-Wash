@@ -105,7 +105,6 @@
 			}
 			function getdata1()
 			{
-				alert("abc");
 				var em = window.sessionStorage.getItem("email");
 				url1 = "http://mobilecarwash.club/address-app.php";
 				url1 += "?first=" + document.getElementById('line1').value;
@@ -115,7 +114,6 @@
 				url1 += "&county=" + document.getElementById('county').value;
 				url1 += "&postcode=" + document.getElementById('postcode').value;
 				url1 += "&email="+em;
-				alert(url1);
 				xmlhttp1.open("GET", url1, false);
 				xmlhttp1.send();
 			}
