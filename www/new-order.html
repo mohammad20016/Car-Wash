@@ -112,18 +112,32 @@ Date<br>
    
 <label>Time<br>
 <input id="time1" type="time">   </label></div>
-<div class="col-2">
-    <label>
-Model<br>
-<input id="model" type="text"> </label> </div>
-<div class="col-2">
-    <label>
-Make<br>
-<input id="make" type="text"></label></div>
+<div class="col-3">
+   <label>
+Type of Wash<br> 
+<select name="type" id="type2" onChange="price()">
+<option value="select">Select....</option>
+<option value="exterior">Exterior Only</option>
+<option value="full">Full Car (Interior & Exterior)</option></select></label>
+</div>
+<div id="price" style="font-weight:bold"></div>
+<script>
+function price(){
+	if (document.getElementById('type2').value == 'exterior')
+	{
+		document.getElementById('price').innerHTML = '&pound; 20';
+	}
+	if (document.getElementById('type2').value == 'full')
+	{ 
+		document.getElementById('price').innerHTML = '&pound; 35';
+	}
+}
+</script>
+
 
 <div class="col-2">
 <div class="col-submit">
-    <button class="submitbtn" id="submitbtn">Add new car</button>
+    <button class="submitbtn" id="submitbtn">Order</button>
   </div></div>
 </div>
 </div>  
