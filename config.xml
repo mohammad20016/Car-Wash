@@ -76,6 +76,8 @@
     <allow-intent href="itms:*"/>
     <allow-intent href="itms-apps:*"/>
   </platform>
-   <access origin="http://mobilecarwash.club" subdomains="true" />
+   <access origin="*"/>
+   <plugin name="cordova-plugin-whitelist" version="1"/>
+<allow-navigation href="http://mobilecarwash.club*" />
 </widget>
 
