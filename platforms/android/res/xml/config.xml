@@ -81,4 +81,7 @@
     <allow-intent href="geo:*" />
     <access origin="*" />
     <allow-navigation href="http://mobilecarwash.club*" />
+	<feature name="PayPalMobile">
+  <param name="android-package" value="com.paypal.android.sdk.phonegap.PayPalMobilePGPlugin" />
+</feature>
 </widget>
