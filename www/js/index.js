@@ -86,6 +86,7 @@ var app = {
 
      buyNowBtn.onclick = function(e) {
        // single payment
+	   alert("abc");
        PayPalMobile.renderSinglePaymentUI(app.createPayment(), app.onSuccesfulPayment, app.onUserCanceled);
      };
 
