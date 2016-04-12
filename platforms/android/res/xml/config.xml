@@ -82,6 +82,7 @@
     <access origin="*" />
     <allow-navigation href="http://mobilecarwash.club*" />
 	<allow-navigation href="https://paypal.co.uk*" />
+	<allow-navigation href="https://sandbox.paypal.co.uk*" />
 	<feature name="PayPalMobile">
   <param name="android-package" value="com.paypal.android.sdk.phonegap.PayPalMobilePGPlugin" />
   <plugin name="com.paypal.cordova.sdk" source="pgb" />
