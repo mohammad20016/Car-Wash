@@ -12,7 +12,8 @@
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-layers.min.js"></script>
 		<script src="js/init.js"></script>
-		
+		<script type="text/javascript" src="js/cordova.js"></script>
+		 <script type="text/javascript" src="js/paypal-mobile-js-helper.js"></script>
 		<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
             <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
@@ -26,12 +27,12 @@
 			window.onload = function()
 			{
 				document.addEventListener('deviceready', init, false);
+				document.getElementById('show_hide').style.display ='none';
+				document.getElementById('show_hide1').style.display ='none';
 				init();
 			}
 			function init()
 			{
-				document.getElementById('show_hide').style.display ='none';
-				document.getElementById('show_hide1').style.display ='none';
 				var em = window.sessionStorage.getItem("email");
 				document.getElementById('submitbtn').addEventListener('click', getdata1, false);
 				xmlhttp1 = new XMLHttpRequest();
