@@ -38,6 +38,20 @@
 				url1 += "?email="+em;
 				xmlhttp1.open("GET", url1, false);
 				xmlhttp1.send();
+				document.getElementById('pricer').addEventListener('click', getdata1, false);
+				xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = processReturn;
+			}
+			function getdata1()
+			{
+				url = "http://mobilecarwash.club/addorder.php";
+				url += "?email=" + em;
+				url += "&car=" + document.getElementById('listcar').value;
+				url += "&address=" + document.getElementById('listaddress').value;
+				url += "&date1=" + document.getElementById('date1').value;
+				url += "&time1=" + document.getElementById('time1').value;
+				xmlhttp.open("GET", url, false);
+				xmlhttp.send();
 			}
 			function processReturn1()
 			{
@@ -99,7 +113,7 @@ if (document.getElementById('listaddress').value == 'addnew')
   <div id="result"></div>
 <div class="col-2"><label>
 <input type="hidden" name="on1" value="Carwash">Car Wash Type <br />
-  <select name="os1">
+  <select name="os1" id="pricer">
     <option value="Exterior">Exterior Wash - &pound;20</option>
     <option value="Full">Full Wash - &pound;35</option>
   </select> <br />
@@ -113,7 +127,7 @@ if (document.getElementById('listaddress').value == 'addnew')
 
 </label></div>
 
-<input type="image" src="https://www.sandbox.paypal.com/en_US/GB/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
+<input type="image" id ="pricer" src="https://www.sandbox.paypal.com/en_US/GB/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
 <img alt="" border="0" src="https://www.sandbox.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1">
 </form>
 
