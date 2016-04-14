@@ -34,15 +34,17 @@
 				var em = window.sessionStorage.getItem("email");
 				xmlhttp1 = new XMLHttpRequest();
 				xmlhttp1.onreadystatechange = processReturn1;
+				document.getElementById('submitbtn').addEventListener('click', getdata1, false);
 				var em = window.sessionStorage.getItem("email");
 				url1 = "http://mobilecarwash.club/listcar.php";
 				url1 += "?email="+em;
 				xmlhttp1.open("GET", url1, false);
 				xmlhttp1.send();
-				document.getElementById('submitbtn').addEventListener('click', getdata1, false);
+				
 			}
 			function getdata1()
 			{
+				alert("2");
 				xmlhttp = new XMLHttpRequest();
 				xmlhttp.onreadystatechange = processReturn;
 				url = "http://mobilecarwash.club/addorder.php";
@@ -112,8 +114,10 @@ if (document.getElementById('listaddress').value == 'addnew')
 }
 }
 </script>
+<div id="result1"></div>
 
 <div id="result"></div>
+
   
 <div class="col-2"><label>
   <select id="pricer1">
