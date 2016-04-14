@@ -3,6 +3,7 @@
   <description>Mobile Car Wash Team washes your car at your door.</description>
   <author href="" email="mohammad_ahmadzai@hotmail.co.uk">Mohammad Ahmadzai</author>
   <content src="index.html"/>
+  <preference name="phonegap-version" value="3.5.0" />
   <preference name="permissions" value="none"/>
   <preference name="orientation" value="default"/>
   <preference name="target-device" value="universal"/>

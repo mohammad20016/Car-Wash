@@ -120,11 +120,3 @@ app.initialize();
  * _system - always open in the system web browse
  */
 
-$(document).on('click', 'a[href^=http], a[href^=https]', function(e){
-
-	e.preventDefault();
-	var $this = $(this); 
-	var target = $this.data('inAppBrowser') || '_blank';
-
-	window.open($this.attr('href'), target, 'location=no');
-});
