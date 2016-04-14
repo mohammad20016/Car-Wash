@@ -99,7 +99,6 @@ label > select {
   width: 100%;
   padding: 0;
   color: #222;
-  margin: 16px 0 6px;
   font-weight: 500;
   background: transparent;
   border: none;
@@ -108,7 +107,7 @@ label > select {
   font-size: 14px;
   opacity: .4;
   transition: all linear .3s;
-  height:94%;
+  height:auto;
 }
 
 label > input:focus, label > select:focus {
