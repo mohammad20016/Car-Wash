@@ -47,15 +47,16 @@
 				alert("2");
 				xmlhttp = new XMLHttpRequest();
 				xmlhttp.onreadystatechange = processReturn;
-				url = "http://mobilecarwash.club/addorder.php";
-				url += "?email=" + em;
-				url += "&car=" + document.getElementById('listcar').value;
-				url += "&address=" + document.getElementById('listaddress').value;
-				url += "&date1=" + document.getElementById('date1').value;
-				url += "&time1=" + document.getElementById('time1').value;
-				url += "&type=" + document.getElementById('pricer1').value;
-				alert(url);
-				xmlhttp.open("GET", url, false);
+				urwl = "http://mobilecarwash.club/addorder.php";
+				var em = window.sessionStorage.getItem("email");
+				urwl += "?email="+em;
+				urwl += "&car="+document.getElementById("listcar").value;
+				urwl += "&address="+document.getElementById('listaddress').value;
+				urwl += "&date1="+document.getElementById('date1').value;
+				urwl += "&time1="+document.getElementById('time1').value;
+				urwl += "&type="+document.getElementById('pricer1').value;
+				alert(urwl);
+				xmlhttp.open("GET", urwl, false);
 				xmlhttp.send();
 			}
 			function processReturn1()
@@ -67,9 +68,9 @@
 			}
 			function processReturn()
 			{
-				if (xmlhttp1.readyState == 4 && xmlhttp1.status == 200)
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
 				{
-					document.getElementById('result1').innerHTML = xmlhttp1.responseText;
+					document.getElementById('result1').innerHTML = xmlhttpS.responseText;
 				}
 			}
 	</script>
@@ -96,7 +97,7 @@
             <div id="banner-wrapper" style="width:90%; margin:auto; padding:5px;">
 				 <div id="banner" class="box container" style="margin:10px; padding:10px;"> 
                 <h1>New Order</h1>
-                 <div id="result"></div>
+                 <div id="result1"></div>
                  
 <script>
 function listcar(){
@@ -114,7 +115,6 @@ if (document.getElementById('listaddress').value == 'addnew')
 }
 }
 </script>
-<div id="result1"></div>
 
 <div id="result"></div>
 
