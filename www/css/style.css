@@ -8,7 +8,7 @@
 
 	body
 	{
-		background-color:		#987654;
+		background-color:		#67ADCF;
 		background-image:		-moz-linear-gradient(top, rgba(0,0,0,0.05), rgba(0,0,0,0)),		url('images/bg01.png');
 		background-image:		-webkit-linear-gradient(top, rgba(0,0,0,0.05), rgba(0,0,0,0)),	url('images/bg01.png');
 		background-image:		-o-linear-gradient(top, rgba(0,0,0,0.05), rgba(0,0,0,0)),		url('images/bg01.png');
