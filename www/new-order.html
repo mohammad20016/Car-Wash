@@ -92,12 +92,17 @@ if (document.getElementById('listaddress').value == 'addnew')
 <input type="hidden" name="cmd" value="_s-xclick">
 <input type="hidden" name="hosted_button_id" value="REDGH3S3EHBQY">
 <div id="result"></div>
-<table>
-<tr><td><input type="hidden" name="on0" value="Car Wash Types">Car Wash Types</td></tr><tr><td><select name="os0">
+<div class="col-2"><label><input type="hidden" name="on0" value="Car Wash Types">Car Wash Types<br>
+<select name="os0">
 	<option value="Exterior Wash">Exterior Wash £20.00 GBP</option>
 	<option value="Full Wash">Full Wash £35.00 GBP</option>
-</select> </td></tr>
-</table>
+</select> </label></div>
+<div class="col-2">
+	<label> Date: <br><input type="date" id="date1"></label>
+</div>
+<div class="col-2">
+	<label> Time: <br><input type="time" id="time1"></label>
+</div>
 <input type="hidden" name="currency_code" value="GBP">
 <input type="image" src="https://www.sandbox.paypal.com/en_US/GB/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
 <img alt="" border="0" src="https://www.sandbox.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1">
