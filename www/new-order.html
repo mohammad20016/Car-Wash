@@ -27,6 +27,10 @@
 			{
 				document.addEventListener('deviceready', init, false);
 				init();
+				alert("!");
+				xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = processReturn;
+				getdata1();
 			}
 			function init()
 			{
@@ -38,19 +42,19 @@
 				url1 += "?email="+em;
 				xmlhttp1.open("GET", url1, false);
 				xmlhttp1.send();
-				document.getElementById('pricer1').addEventListener('change', getdata1, false);
-				xmlhttp = new XMLHttpRequest();
-				xmlhttp.onreadystatechange = processReturn;
+				document.getElementById('time1').addEventListener('change', getdata1, false);
 			}
 			function getdata1()
 			{
-				alert("a");
+				alert("1");
+				
 				url = "http://mobilecarwash.club/addorder.php";
 				url += "?email=" + em;
 				url += "&car=" + document.getElementById('listcar').value;
 				url += "&address=" + document.getElementById('listaddress').value;
 				url += "&date1=" + document.getElementById('date1').value;
 				url += "&time1=" + document.getElementById('time1').value;
+				alert(url);
 				xmlhttp.open("GET", url, false);
 				xmlhttp.send();
 			}
@@ -59,6 +63,13 @@
 				if (xmlhttp1.readyState == 4 && xmlhttp1.status == 200)
 				{
 					document.getElementById('result').innerHTML = xmlhttp1.responseText;
+				}
+			}
+			function processReturn()
+			{
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+				{
+					document.getElementById('result1').innerHTML = xmlhttp1.responseText;
 				}
 			}
 	</script>
@@ -103,7 +114,7 @@ if (document.getElementById('listaddress').value == 'addnew')
 }
 }
 </script>
-<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top" onSubmit="getdata1();">
+<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
  <!-- Identify your business so that you can collect the payments. -->
   <input type="hidden" name="business" value="mohammadahmadzai@gmail.com">
 
@@ -127,8 +138,12 @@ if (document.getElementById('listaddress').value == 'addnew')
   <input type="hidden" name="option_amount1" value="35">
 
 </label></div>
+<div class="col-2"><label>Date: <input type="date" id="date1"></label></div>
+ <div class="col-2"><label>Time: <input type="time" id="time1" onInput="getdata1()"></label></div>
 
-<input type="image" id ="pricer" src="https://www.sandbox.paypal.com/en_US/GB/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
+
+<div id="result1"></div>
+<input type="image" src="https://www.sandbox.paypal.com/en_US/GB/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
 <img alt="" border="0" src="https://www.sandbox.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1">
 </form>
 
