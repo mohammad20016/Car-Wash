@@ -26,33 +26,16 @@
 			window.onload = function()
 			{
 				document.addEventListener('deviceready', init, false);
-				document.getElementById('show_hide').style.display ='none';
-				document.getElementById('show_hide1').style.display ='none';
 				init();
 			}
 			function init()
 			{
 				var em = window.sessionStorage.getItem("email");
-				document.getElementById('submitbtn').addEventListener('click', getdata1, false);
 				xmlhttp1 = new XMLHttpRequest();
 				xmlhttp1.onreadystatechange = processReturn1;
 				var em = window.sessionStorage.getItem("email");
 				url1 = "http://mobilecarwash.club/listcar.php";
 				url1 += "?email="+em;
-				xmlhttp1.open("GET", url1, false);
-				xmlhttp1.send();
-			}
-			function getdata1()
-			{
-				 var file = document.querySelector('input[type=file]').files[0];
-				var em = window.sessionStorage.getItem("email");
-				url1 = "http://mobilecarwash.club/car-app.php";
-				url1 += "?number=" + document.getElementById('number').value;
-				url1 += "&colour=" + document.getElementById('colour').value;
-				url1 += "&model=" + document.getElementById('model').value;
-				url1 += "&make=" + document.getElementById('make').value;
-				url1 += "&email="+em;
-				url1 += "&image="+file;
 				xmlhttp1.open("GET", url1, false);
 				xmlhttp1.send();
 			}
@@ -105,44 +88,22 @@ if (document.getElementById('listaddress').value == 'addnew')
 }
 }
 </script>
-<iframe src="paypal.html" width="100%" height="100%">
- 
-</iframe>
-<button id="buyButton">Buy Now!</button>
-        <script>
-		var buyButton = document.getElementById("buyButton");
-buyButton.onclick = function(e) {
+<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="REDGH3S3EHBQY">
+<div id="result"></div>
+<table>
+<tr><td><input type="hidden" name="on0" value="Car Wash Types">Car Wash Types</td></tr><tr><td><select name="os0">
+	<option value="Exterior Wash">Exterior Wash £20.00 GBP</option>
+	<option value="Full Wash">Full Wash £35.00 GBP</option>
+</select> </td></tr>
+</table>
+<input type="hidden" name="currency_code" value="GBP">
+<input type="image" src="https://www.sandbox.paypal.com/en_US/GB/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
+<img alt="" border="0" src="https://www.sandbox.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1">
+</form>
 
-  // See PayPalMobilePGPlugin.js for full documentation
-  // set environment you want to use
-  window.plugins.PayPalMobile.setEnvironment("PayPalEnvironmentNoNetwork");
-
-  // create a PayPalPayment object, usually you would pass parameters dynamically
-  var payment = new PayPalPayment("1.99", "USD", "Awesome saws");
-
-  // define a callback when payment has been completed
-  var completionCallback = function(proofOfPayment) {
-    // TODO: Send this result to the server for verification;
-    // see https://developer.paypal.com/webapps/developer/docs/integration/mobile/verify-mobile-payment/ for details.
-    console.log("Proof of payment: " + JSON.stringify(proofOfPayment));
-  }
-
-  // define a callback if payment has been canceled
-  var cancelCallback = function(reason) {
-    console.log("Payment cancelled: " + reason);
-  }
-
-  // launch UI, the PayPal UI will be present on screen until user cancels it or payment completed
-  window.plugins.PayPalMobile.presentPaymentUI("ASzYtMgoa9jTg1XaTQh-t_YbT3aGqMKENrSfyjm2OGMLPfrrBJrV6THQFi-lqy52SnopCBB2Ld9X6i7d", "ahmadzai787@gmail.com", "ashimtuladhar@gmail.com", payment, completionCallback, cancelCallback);
-}
-/* Handle any link start with http or https using PhoneGap (Cordova) inAppBrowser
- * Options you can set data-in-app-browser html attribute to one of the
- * following options: 
- * _self - opens in the Cordova WebView if url is in the white-list, else it opens in the InAppBrowser 
- * _blank - always open in the InAppBrowser 
- * _system - always open in the system web browse
- */
-
+<script>
 $(document).on('click', 'a[href^=http], a[href^=https]', function(e){
 
 	e.preventDefault();
