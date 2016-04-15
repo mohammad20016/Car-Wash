@@ -32,6 +32,8 @@
 			function init()
 			{
 				var em = window.sessionStorage.getItem("email");
+				xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = processReturn;
 				xmlhttp1 = new XMLHttpRequest();
 				xmlhttp1.onreadystatechange = processReturn1;
 				document.getElementById('submitbtn').addEventListener('click', getdata1, false);
@@ -52,8 +54,7 @@
 			}
 			function getdata1()
 			{
-				xmlhttp = new XMLHttpRequest();
-				xmlhttp.onreadystatechange = processReturn;
+				
 				urwl = "http://mobilecarwash.club/addorder.php";
 				var em = window.sessionStorage.getItem("email");
 				urwl += "?email="+em;
