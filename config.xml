@@ -36,7 +36,7 @@
   <gap:plugin name="org.apache.cordova.network-information"/>
   <gap:plugin name="org.apache.cordova.splashscreen"/>
   <gap:plugin name="org.apache.cordova.vibration"/>
-  <plugin name="LaunchMyApp" value="nl.xservices.plugins.LaunchMyApp"/>
+
  <plugin name="nl.x-services.plugins.launchmyapp" source="pgb">
     <param name="URL_SCHEME" value="carwashapp" />
 </plugin>
