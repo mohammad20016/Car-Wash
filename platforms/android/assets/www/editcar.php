@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Add New Car</title>
+<title>Edit Car</title>
 <script src="js/jquery.min.js"></script>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
@@ -21,43 +21,7 @@
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
-          <script>
-			var xmlhttp;
-			window.onload = function()
-			{
-				document.addEventListener('deviceready', init, false);
-				init();
-			}
-			function init()
-			{
-				var em = window.sessionStorage.getItem("email");
-				document.getElementById('submitbtn').addEventListener('click', getdata1, false);
-				xmlhttp1 = new XMLHttpRequest();
-				xmlhttp1.onreadystatechange = processReturn1;
-				document.getElementById('preview').src ="images/no_image_car.png";
-			}
-			function getdata1()
-			{
-				 var file = document.querySelector('input[type=file]').files[0];
-				var em = window.sessionStorage.getItem("email");
-				url1 = "http://mobilecarwash.club/car-app.php";
-				url1 += "?number=" + document.getElementById('number').value;
-				url1 += "&colour=" + document.getElementById('colour').value;
-				url1 += "&model=" + document.getElementById('model').value;
-				url1 += "&make=" + document.getElementById('make').value;
-				url1 += "&email="+em;
-				url1 += "&image="+file;
-				xmlhttp1.open("GET", url1, false);
-				xmlhttp1.send();
-			}
-			function processReturn1()
-			{
-				if (xmlhttp1.readyState == 4 && xmlhttp1.status == 200)
-				{
-					document.getElementById('result').innerHTML = xmlhttp1.responseText;
-				}
-			}
-	</script>
+          
   </head>
 <body>
 <!-- Header -->
@@ -73,7 +37,6 @@
                             	<li><a href="index.html">Home</a></li>
                                 <li><a href="myaccount.html">My Account</a></li>
                                 <li><a href="orders.html">Orders</a></li>
-                                <li><a href="logout.html">Log out</a></li>
                             </ul>
                             </nav>
 				</header>

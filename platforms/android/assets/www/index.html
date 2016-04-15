@@ -78,6 +78,18 @@
 				Page.init();
 
 			});
+			window.onload = function()
+			{
+				document.addEventListener('deviceready', init, false);
+				init();
+				var abc = window.localStorage.getItem("loggedin");
+				if (abc == "true")
+				{
+					var em = window.localStorage.getItem("email");
+						window.sessionStorage.setItem("email",em);
+						window.open('myaccount.html','_self');
+				}
+			}
 		</script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
@@ -133,18 +145,10 @@
                                 
                                <ul>
                             	<br>
-								<li><a href="index2.html" class="button big icon fa-arrow-circle-right">Order Car Wash </a></li>
+								<li><a href="signup.html" class="button big icon fa-arrow-circle-right">Order Car Wash </a></li>
 								<li><a href="signin.html" class="button big icon fa-arrow-circle-right">Sign In</a></li>
-                                <li><a href="index2.html" class="button big icon fa-arrow-circle-right">Sn</a></li>
-							</ul>
+                                </ul>
                             
-                                    <div class="row" style=" background-color:#AAA; border:#999 1px solid; padding:5px; margin:5px;">
-						<p class="event received">Device is Ready</p>
-                        <button id="buyNowBtn"> Buy Now !</button>
-  <button id="buyInFutureBtn"> Pay in Future !</button>
-  <button id="profileSharingBtn"> Profile Sharing !</button>
-					
-					</div>
 						</div>
 					</div>
 				</div>
