@@ -78,6 +78,18 @@
 				Page.init();
 
 			});
+			window.onload = function()
+			{
+				document.addEventListener('deviceready', init, false);
+				init();
+				var abc = window.localStorage.getItem("loggedin");
+				if (abc == "true")
+				{
+					var em = window.localStorage.getItem("email");
+						window.sessionStorage.setItem("email",em);
+						window.open('myaccount.html','_self');
+				}
+			}
 		</script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>

@@ -58,9 +58,10 @@
 			{
 				abc = window.location.href.toString().split(window.location.host)[1];
 					var res = abc.split("=")[1];
+
 				 var file = document.querySelector('input[type=file]').files[0];
 				var em = window.sessionStorage.getItem("email");
-				url = "http://mobilecarwash.club/car-app.php";
+				url = "http://mobilecarwash.club/editcar-app.php";
 				url += "?number=" + document.getElementById('number').value;
 				url += "&colour=" + document.getElementById('colour').value;
 				url += "&model=" + document.getElementById('model').value;
@@ -68,8 +69,10 @@
 				url += "&email="+em;
 				url += "&image="+file;
 				url += "&carId="+res;
+				alert(url);
 				xmlhttp.open("GET", url, false);
 				xmlhttp.send();
+				alert("a");
 			}
 			function processReturn()
 			{
@@ -106,6 +109,7 @@
 				 var em1 = window.sessionStorage.getItem("edit");
 				 document.write(em);
                  </script></h2></div>
+                 <div id="result1"></div>
                 <h1>Edit your Car</h1>
                  <div id="result"></div>
                 <script>
