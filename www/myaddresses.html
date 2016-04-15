@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>My Car</title>
+<title>My Addresses</title>
 <script src="js/jquery.min.js"></script>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
@@ -35,7 +35,7 @@
 				xmlhttp1 = new XMLHttpRequest();
 				xmlhttp1.onreadystatechange = processReturn1;
 				var em = window.sessionStorage.getItem("email");
-				url1 = "http://mobilecarwash.club/listmycar.php";
+				url1 = "http://mobilecarwash.club/listmyaddresses.php";
 				url1 += "?email="+em;
 				xmlhttp1.open("GET", url1, false);
 				xmlhttp1.send();
