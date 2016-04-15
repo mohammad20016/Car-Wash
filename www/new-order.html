@@ -36,12 +36,12 @@
 				xmlhttp.onreadystatechange = processReturn;
 				xmlhttp1 = new XMLHttpRequest();
 				xmlhttp1.onreadystatechange = processReturn1;
-				document.getElementById('submitbtn').addEventListener('click', getdata1, false);
 				var em = window.sessionStorage.getItem("email");
 				url1 = "http://mobilecarwash.club/listcar.php";
 				url1 += "?email="+em;
 				xmlhttp1.open("GET", url1, false);
 				xmlhttp1.send();
+				document.getElementById('submitbtn').addEventListener('click', getdata1, false);
 				
 			}
 			
