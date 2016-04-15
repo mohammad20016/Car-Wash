@@ -66,6 +66,7 @@
 					{
 						var em = document.getElementById('email').value;
 						window.localStorage.setItem("email", em);
+						window.sessionStorage.setItem("email", em);
 						window.localStorage.setItem("loggedin","true");
 						var abc = window.localStorage.getItem("loggedin");
 						alert(abc);
