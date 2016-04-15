@@ -42,9 +42,16 @@
 				xmlhttp1.send();
 				
 			}
+			
+			function processReturn1()
+			{
+				if (xmlhttp1.readyState == 4 && xmlhttp1.status == 200)
+				{
+					document.getElementById('result').innerHTML = xmlhttp1.responseText;
+				}
+			}
 			function getdata1()
 			{
-				alert("2");
 				xmlhttp = new XMLHttpRequest();
 				xmlhttp.onreadystatechange = processReturn;
 				urwl = "http://mobilecarwash.club/addorder.php";
@@ -55,23 +62,27 @@
 				urwl += "&date1="+document.getElementById('date1').value;
 				urwl += "&time1="+document.getElementById('time1').value;
 				urwl += "&type="+document.getElementById('pricer1').value;
-				alert(urwl);
 				xmlhttp.open("GET", urwl, false);
 				xmlhttp.send();
 			}
-			function processReturn1()
-			{
-				if (xmlhttp1.readyState == 4 && xmlhttp1.status == 200)
-				{
-					document.getElementById('result').innerHTML = xmlhttp1.responseText;
-				}
-			}
 			function processReturn()
 			{
+				
 				if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
 				{
-					document.getElementById('result1').innerHTML = xmlhttpS.responseText;
+					document.getElementById('result1').innerHTML = xmlhttp.responseText;
 				}
+				if (document.getElementById('pricer1').value == "Full")
+				{
+					var price = '35';
+				}
+				else if (document.getElementById('pricer1').value == "Exterior")
+				{
+					var price = '20';
+				}
+				var id = window.sessionStorage.getItem("id");
+				var u = "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_xclick&business=mohammadahmadzai@gmail.com&item_name=Car_Wash&item_number="+id+"&amount="+price+"&currency_code=GBP";
+				window.open(u, '_self');
 			}
 	</script>
   </head>
@@ -97,7 +108,6 @@
             <div id="banner-wrapper" style="width:90%; margin:auto; padding:5px;">
 				 <div id="banner" class="box container" style="margin:10px; padding:10px;"> 
                 <h1>New Order</h1>
-                 <div id="result1"></div>
                  
 <script>
 function listcar(){
@@ -115,7 +125,7 @@ if (document.getElementById('listaddress').value == 'addnew')
 }
 }
 </script>
-
+<div id="result1"></div>
 <div id="result"></div>
 
   
