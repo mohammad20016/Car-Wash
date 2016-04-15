@@ -36,9 +36,9 @@
   <gap:plugin name="org.apache.cordova.splashscreen"/>
   <gap:plugin name="org.apache.cordova.vibration"/>
   <plugin name="LaunchMyApp" value="nl.xservices.plugins.LaunchMyApp"/>
- <gap:plugin name="nl.x-services.plugins.launchmyapp" spec="3.0" source="pgb">
+ <plugin name="nl.x-services.plugins.launchmyapp" source="pgb">
     <param name="URL_SCHEME" value="carwashapp" />
-</gap:plugin>
+</plugin>
   <icon src="icon.png"/>
   <icon src="www/res/icon/android/icon-36-ldpi.png" gap:platform="android" gap:qualifier="ldpi"/>
   <icon src="www/res/icon/android/icon-48-mdpi.png" gap:platform="android" gap:qualifier="mdpi"/>
