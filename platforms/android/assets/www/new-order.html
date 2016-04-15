@@ -32,14 +32,16 @@
 			function init()
 			{
 				var em = window.sessionStorage.getItem("email");
+				xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = processReturn;
 				xmlhttp1 = new XMLHttpRequest();
 				xmlhttp1.onreadystatechange = processReturn1;
-				document.getElementById('submitbtn').addEventListener('click', getdata1, false);
 				var em = window.sessionStorage.getItem("email");
 				url1 = "http://mobilecarwash.club/listcar.php";
 				url1 += "?email="+em;
 				xmlhttp1.open("GET", url1, false);
 				xmlhttp1.send();
+				document.getElementById('submitbtn').addEventListener('click', getdata1, false);
 				
 			}
 			
@@ -52,8 +54,7 @@
 			}
 			function getdata1()
 			{
-				xmlhttp = new XMLHttpRequest();
-				xmlhttp.onreadystatechange = processReturn;
+				
 				urwl = "http://mobilecarwash.club/addorder.php";
 				var em = window.sessionStorage.getItem("email");
 				urwl += "?email="+em;
@@ -80,8 +81,8 @@
 				{
 					var price = '20';
 				}
-				var id = window.sessionStorage.getItem("id");
-				var u = "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_xclick&business=mohammadahmadzai@gmail.com&item_name=Car_Wash&amount="+price+"&currency_code=GBP";
+				var id = document.getElementById('listcar').value;
+				var u = "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_xclick&business=mohammadahmadzai@gmail.com&item_name=Car_Wash&item_number="+id+"&amount="+price+"&currency_code=GBP";
 				window.open(u, '_self');
 			}
 	</script>

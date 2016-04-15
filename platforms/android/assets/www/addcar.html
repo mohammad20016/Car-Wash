@@ -80,11 +80,14 @@
            
             <div id="banner-wrapper" style="width:90%; margin:auto; padding:5px;">
 				 <div id="banner" class="box container" style="margin:10px; padding:10px;"> 
+                 <div><h2>Welcome <script> 
+				 var em = window.sessionStorage.getItem("email");
+				 document.write(em);</script></h2></div>
                 <h1>New Car</h1>
                  <div id="result"></div>
                  <form>
                <label> Car Image:</label><br />
-<input type="file" onChange="previewFile()" id="carimage"><br>
+<input type="file" onChange="previewFile()" id="carimage" accept="image/*" capture="camera"><br>
 </form>
 <img src="" height="200" alt="Image preview..." id="preview">
 <script>

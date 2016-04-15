@@ -30,62 +30,12 @@
 			{
 				document.addEventListener('deviceready', init, false);
 				init();
+
 			}
 			function init()
 			{
 				navigator.geolocation.getCurrentPosition(onSuccess, onError);
-				document.getElementById('submitbtn').addEventListener('click', getdata, false);
-				xmlhttp = new XMLHttpRequest();
-				xmlhttp.onreadystatechange = processReturn;
-			}
-			 function onSuccess(position) {
-        var element = document.getElementById('geolocation');
-		var lat = position.coords.latitude;
-		var lon = position.coords.longitude;
-		alert (lat);
-		alert(lon);
-        element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
-                            'Longitude: '          + position.coords.longitude             + '<br />' +
-                            'Altitude: '           + position.coords.altitude              + '<br />' +
-                            'Accuracy: '           + position.coords.accuracy              + '<br />' +
-                            'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
-                            'Heading: '            + position.coords.heading               + '<br />' +
-                            'Speed: '              + position.coords.speed                 + '<br />' +
-                            'Timestamp: '          + position.timestamp                    + '<br />';
-							initMap();
-    }
-
-    // onError Callback receives a PositionError object
-    //
-    function onError(error) {
-        alert('code: '    + error.code    + '\n' +
-              'message: ' + error.message + '\n');
-    }
-			function getdata()
-			{
-				url = "http://mobilecarwash.club/signin-app.php";
-				url += "?email=" + document.getElementById('email').value;
-				url += "&password=" + document.getElementById('password').value;
-				xmlhttp.open("GET", url, false);
-				xmlhttp.send();
-			}
-			function processReturn()
-			{
-				if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-				{
-					document.getElementById('result').innerHTML = xmlhttp.responseText;
-					var hh = document.getElementById('result').innerHTML;
-				var n = hh.indexOf("Successful Login");
-				if (n <= -1)
-				{
-				}
-				else
-					{
-						var em = document.getElementById('email').value;
-						window.sessionStorage.setItem("email", em);
-						window.open('myaccount.html','_self');
-					}
-				}
+				
 			}
 		</script>
 		
@@ -116,13 +66,24 @@
 			<div id="banner-wrapper">
 				<div id="banner" class="box container">
                 <div id="wrapper1">
-<div id="result"></div>
-                <h1>Add Car</h1>
-					<div class="row">
-						
-						<a href="addaddress.html">Add new address</a>
-                        <a href="addcar.html">Add new car</a>
-						<a href="new-order.html">Order a car wash</a>
+               
+
+				 <div><h2>Welcome <script> 
+				 var em = window.sessionStorage.getItem("email");
+				 document.write(em);</script></h2></div>
+                <h1>Cars</h1>
+					<div class="col-2">
+						<button><a href="addcar.html">Add new car</a></button>
+                       <button> <a href="mycars.html">List of my car</a></button>
+                     </div>
+                     <h1>Addresses</h1>
+					<div class="col-2">
+						<button><a href="addaddress.html">Add new address</a></button>
+                        <button><a href="myaddresses.html">List of my addresses</a></button>
+                     </div>
+					<h1>Order</h1>
+					<div class="col-2">
+						<button><a href="new-order.html">Order a car wash</a></button>
 					</div>
 				</div>
 			</div>
