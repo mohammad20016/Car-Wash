@@ -69,9 +69,9 @@
                 <div id="wrapper1">
                
 
-				<div><h2>Welcome </h2><b><i><script> 
+				 <div><h2>Welcome <script> 
 				 var em = window.sessionStorage.getItem("email");
-				 document.write(em);</script></i></b></div> 
+				 document.write(em);</script></h2></div>
                 <h1>Cars</h1>
 					<div class="col-2">
 						<button><a href="addcar.html">Add new car</a></button>
@@ -85,7 +85,6 @@
 					<h1>Order</h1>
 					<div class="col-2">
 						<button><a href="new-order.html">Order a car wash</a></button>
-                        <button><a href="myorders.html">List of my car wash orders</a></button>
 					</div>
 				</div>
 			</div>
