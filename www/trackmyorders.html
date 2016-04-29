@@ -31,12 +31,6 @@
 				document.addEventListener('deviceready', init, false);
 				init();
 				var abc = window.localStorage.getItem("loggedin");
-				if (abc == "true")
-				{
-					var em = window.localStorage.getItem("email");
-						window.sessionStorage.setItem("email",em);
-						window.open('myaccount.html','_self');
-				}
 			}
 			function init()
 			{
