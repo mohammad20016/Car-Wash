@@ -57,19 +57,6 @@
 				{
 					document.getElementById('result').innerHTML = xmlhttp.responseText;
 					var hh = document.getElementById('result').innerHTML;
-				var n = hh.indexOf("Successful Login");
-				if (n <= -1)
-				{
-				}
-				else
-					{
-						var em = document.getElementById('email').value;
-						window.localStorage.setItem("email", em);
-						window.sessionStorage.setItem("email", em);
-						window.localStorage.setItem("loggedin","true");
-						var abc = window.localStorage.getItem("loggedin");
-						window.open('myaccount.html','_self');
-					}
 				}
 			}
 		</script>
