@@ -35,6 +35,7 @@
 				{
 					var em = window.localStorage.getItem("email");
 						window.sessionStorage.setItem("email",em);
+						window.open('myaccount.html','_self');
 				}
 			}
 			function init()
@@ -45,9 +46,8 @@
 			}
 			function getdata()
 			{
-				url = "http://mobilecarwash.club/signin-app.php";
-				url += "?email=" + document.getElementById('email').value;
-				url += "&password=" + document.getElementById('password').value;
+				url = "http://mobilecarwash.club/track-app.php";
+				url += "?orderId=" + document.getElementById('order').value;
 				xmlhttp.open("GET", url, false);
 				xmlhttp.send();
 			}
@@ -88,8 +88,9 @@
 						<nav id="nav">
 							<ul>
                             	<li><a href="index.html">Home</a></li>
-                                <li><a href="signin.html">Sign In</a></li>
-                                <li><a href="signup.html">Sign Up</a></li>
+                                <li><a href="myaccount.html">My Account</a></li>
+                                <li><a href="orders.html">Orders</a></li>
+                                <li><a href="logout.html">Logout</a></li>
                             </ul>
                             </nav>
 				</header>
@@ -102,22 +103,17 @@
 				<div id="banner" class="box container">
                 <div id="wrapper1">
 <div id="result"></div>
-                <h1>Sign In</h1>
+                <h1>Track Your Order</h1>
 							
-  <div class="col-2">
-    <label>
-      Email Address&nbsp;&nbsp;<br>
-      <input placeholder="Your Email" id="email" name="email" tabindex="1" type="email">
-    </label>
-  </div>
-  <div class="col-2">
-    <label>
-      Password*&nbsp;&nbsp;<br>
-      <input placeholder="Your password" id="password" name="password" tabindex="2" type="password">
-    </label>
-  </div>
   <div class="col-submit">
-    <button class="submitbtn" id="submitbtn">Sign In</button>
+    <label>
+     Enter Order ID&nbsp;&nbsp;<br>
+      <input placeholder="Your Order" id="order" name="order" tabindex="1">
+    </label>
+  </div>
+ 
+  <div class="col-submit">
+    <button class="submitbtn" id="submitbtn">Track</button>
   </div>
 				</div>
 			</div>
