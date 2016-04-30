@@ -1,0 +1,162 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Mobile Car Wash</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.dropotron.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+       	<script type="text/javascript" src="js/LaunchMyApp.js"></script>
+        <script type="text/javascript" src="js/modernizr.custom.46884.js"></script>
+         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.slicebox.js"></script>
+         <script type="text/javascript" src="js/cordova.js"></script>
+		 <script type="text/javascript" src="js/paypal-mobile-js-helper.js"></script>
+         <script type="text/javascript" src="js/index.js"></script>
+         <script type="text/javascript" src="js/cdv-plugin-paypal-mobile-sdk.js"></script>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+            <link rel="stylesheet" href="css/slicebox.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+       
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<script type="text/javascript">
+		function onDeviceReady() {
+        navigator.splashscreen.show();
+    }
+			$(function() {
+				
+				var Page = (function() {
+
+					var $navArrows = $( '#nav-arrows' ).hide(),
+						$shadow = $( '#shadow' ).hide(),
+						slicebox = $( '#sb-slider' ).slicebox( {
+							onReady : function() {
+
+								$navArrows.show();
+								$shadow.show();
+
+							},
+							orientation : 'r',
+							cuboidsRandom : true
+						} ),
+						
+						init = function() {
+
+							initEvents();
+							
+						},
+						initEvents = function() {
+
+							// add navigation events
+							$navArrows.children( ':first' ).on( 'click', function() {
+
+								slicebox.next();
+								return false;
+
+							} );
+
+							$navArrows.children( ':last' ).on( 'click', function() {
+								
+								slicebox.previous();
+								return false;
+
+							} );
+
+						};
+
+						return { init : init };
+
+				})();
+
+				Page.init();
+
+			});
+			function log2()
+			{
+				document.addEventListener('deviceready', init, false);
+				init();
+				var abc = window.localStorage.getItem("loggedin");
+				if (abc == "true")
+				{
+					var em = window.localStorage.getItem("email");
+						window.sessionStorage.setItem("email",em);
+						window.open('myaccount.html','_self');
+				}
+			}
+		</script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body class="homepage" onLoad="log2();">
+
+		<!-- Header -->
+			<div id="header-wrapper">
+				<header id="header" class="container">
+				
+					<!-- Logo -->
+						<div id="logo">
+							<a href="index.html"><img src="images/logo.png" alt="Mobile Car Wash"></a>
+						</div>
+						<nav id="nav">
+							<ul>
+                            	<li><a href="index.html">Home</a></li>
+                                <li><a href="signin.html">Sign In</a></li>
+                                <li><a href="signup.html">Sign Up</a></li>
+                            </ul>
+                            </nav>
+				</header>
+			</div>
+		
+		<!-- Banner -->
+			<div id="banner-wrapper">
+				<div id="banner" class="box container">
+                
+					<div class="row">
+						<div class="7u">
+                        		<div class="wrapper">
+
+				<ul id="sb-slider" class="sb-slider" style="max-width:100% !important;">
+					<li>
+						<a href="#"><img src="img/slide1.jpg" alt="Car Wash"/></a>
+						<div class="sb-description">
+							<h3>We wash your car at your place..</h3>
+						</div>
+					</li>
+				</ul>
+
+				<div id="shadow" class="shadow"></div>
+
+				<div id="nav-arrows" class="nav-arrows">
+					<a href="#">Next</a>
+					<a href="#">Previous</a>
+				</div>
+
+			</div><!-- /wrapper -->
+         
+						</div>
+						<div class="5u">
+							
+                                
+                               <ul>
+                            	<br>
+								<li><a href="signup.html" class="button big icon fa-arrow-circle-right">Order Car Wash </a></li>
+								<li><a href="signin.html" class="button big icon fa-arrow-circle-right">Sign In</a></li>
+                                </ul>
+                            
+						</div>
+					</div>
+				</div>
+			</div>
+		
+		
+
+		<!-- Footer -->
+
+	</body>
+</html>

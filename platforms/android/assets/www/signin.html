@@ -1,0 +1,190 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Mobile Car Wash</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.dropotron.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+        <script type="text/javascript" src="js/modernizr.custom.46884.js"></script>
+         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.slicebox.js"></script>
+         <!--<script type="text/javascript" src="cordova.js"></script>-->
+		
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+            <link rel="stylesheet" href="css/slicebox.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+       
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+		<script>
+			var xmlhttp;
+			window.onload = function()
+			{
+				document.addEventListener('deviceready', init, false);
+				init();
+				var abc = window.localStorage.getItem("loggedin");
+				if (abc == "true")
+				{
+					var em = window.localStorage.getItem("email");
+						window.sessionStorage.setItem("email",em);
+						window.open('myaccount.html','_self');
+				}
+			}
+			function init()
+			{
+				document.getElementById('submitbtn').addEventListener('click', getdata, false);
+				xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = processReturn;
+			}
+			function getdata()
+			{
+				url = "http://mobilecarwash.club/signin-app.php";
+				url += "?email=" + document.getElementById('email').value;
+				url += "&password=" + document.getElementById('password').value;
+				xmlhttp.open("GET", url, false);
+				xmlhttp.send();
+			}
+			function processReturn()
+			{
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+				{
+					document.getElementById('result').innerHTML = xmlhttp.responseText;
+					var hh = document.getElementById('result').innerHTML;
+				var n = hh.indexOf("Successful Login");
+				if (n <= -1)
+				{
+				}
+				else
+					{
+						var em = document.getElementById('email').value;
+						window.localStorage.setItem("email", em);
+						window.sessionStorage.setItem("email", em);
+						window.localStorage.setItem("loggedin","true");
+						var abc = window.localStorage.getItem("loggedin");
+						window.open('myaccount.html','_self');
+					}
+				}
+			}
+		</script>
+		
+	</head>
+	<body class="homepage">
+
+		<!-- Header -->
+			<div id="header-wrapper">
+				<header id="header" class="container">
+				
+					<!-- Logo -->
+						<div id="logo">
+						<a href="index.html"><img src="images/logo.png" alt="Car Wash"></a>
+						</div>
+						<nav id="nav">
+							<ul>
+                            	<li><a href="index.html">Home</a></li>
+                                <li><a href="signin.html">Sign In</a></li>
+                                <li><a href="signup.html">Sign Up</a></li>
+                            </ul>
+                            </nav>
+				</header>
+			</div>
+		<link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+<link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
+<script type="text/javascript" src="js/switchery.min.js"></script>
+		<!-- Banner -->
+			<div id="banner-wrapper">
+				<div id="banner" class="box container">
+                <div id="wrapper1">
+<div id="result"></div>
+                <h1>Sign In</h1>
+							
+  <div class="col-2">
+    <label>
+      Email Address&nbsp;&nbsp;<br>
+      <input placeholder="Your Email" id="email" name="email" tabindex="1" type="email">
+    </label>
+  </div>
+  <div class="col-2">
+    <label>
+      Password*&nbsp;&nbsp;<br>
+      <input placeholder="Your password" id="password" name="password" tabindex="2" type="password">
+    </label>
+  </div>
+  <div class="col-submit">
+    <button class="submitbtn" id="submitbtn">Sign In</button>
+  </div>
+				</div>
+			</div>
+            </div>
+		
+		
+
+		<!-- Footer -->
+			<div id="footer-wrapper">
+				<footer id="footer" class="container">
+					<div class="row">
+						<div class="4u">
+						
+							<!-- Links -->
+								<section class="widget links">
+									<h3>Useful Links</h3>
+									<ul class="style2">
+										<li><a href="signin.php">Sign In</a></li>
+										<li><a href="signup.php">Sign Up</a></li>
+										
+									</ul>
+								</section>
+						
+						</div>
+						<div class="4u">
+						
+							<!-- Links -->
+								<section class="widget links">
+									<h3>Help</h3>
+									<ul class="style2">
+										<li><a href="cookies.php">Cookies & Privacy Policy</a></li>
+										<li><a href="terms-and-condition.php">Terms & Conditions</a></li>
+										<li><a href="#">Contact Us</a></li>
+									</ul>
+								</section>
+						
+						</div>
+				
+						<div class="4u">
+						
+							<!-- Contact -->
+								<section class="widget contact last">
+									<h3>Socialise</h3>
+									<ul>
+										<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+										<li><a href="#" class="icon fa-pinterest"><span class="label">Pinterest</span></a></li>
+									</ul>
+									
+								</section>
+						
+						</div>
+					</div>
+					<div class="row">
+						<div class="12u">
+							<div id="copyright">
+								<ul class="menu">
+									<li>&copy;Mobile Car Wash 2016. All rights reserved</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+
+	</body>
+</html>
